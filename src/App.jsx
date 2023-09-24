@@ -1,3 +1,9 @@
+import './index.css'
+
 export default function App(){
-  return <h1>Hello</h1>
-}
+  return <div className='dark'>
+    <h1 className="customh1">
+  Hello world!
+</h1>
+  </div>
+} 
