@@ -1,9 +1,6 @@
 /** @type {import('tailwindcss').Config} */
-export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+module.exports = {
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   darkMode: "class",
   theme: {
     extend: {
@@ -12,8 +9,6 @@ export default {
         dark_bg_2: "#202C33",
         dark_bg_3: "#182229",
         dark_bg_4: "#222E35",
-        dark_bg_5: "#233138",
-        dark_bg_6: "#101A20",
         dark_border_1: "#222D34",
         dark_border_2: "#313D45",
         dark_hover_1: "#2A3942",
@@ -30,9 +25,8 @@ export default {
         green_1: "#00A884",
         green_2: "#008069",
         green_3: "#005C4B",
-        green_4: "#025144",
       },
     },
   },
   plugins: [],
-}
+};

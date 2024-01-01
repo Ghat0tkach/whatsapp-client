@@ -25,12 +25,23 @@ import LockIcon from "./Lock";
 import CallIcon from "./Call";
 import MuteIcon from "./Mute";
 import NoVideoIcon from "./NoVideo";
+import ValidIcon from "./Valid";
+import AddContactIcon from "./AddContactIcon";
+import DialIcon from "./Dial";
+import SpeakerIcon from "./Speaker";
+import VideoDialIcon from "./VideoDial";
+import VideoCallIcon from "./VideoCall";
 export {
   CommunityIcon,
+  VideoDialIcon,
+  VideoCallIcon,
+  SpeakerIcon,
+  DialIcon,
   StoryIcon,
   ChatIcon,
   NotificationIcon,
   ArrowIcon,
+  AddContactIcon,
   CloseIcon,
   SearchIcon,
   DotsIcon,
@@ -53,4 +64,5 @@ export {
   CallIcon,
   MuteIcon,
   NoVideoIcon,
+  ValidIcon
 };
