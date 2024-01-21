@@ -1,14 +1,12 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import {CallIcon, DotsIcon, SearchLargeIcon, VideoCallIcon} from "../../../svg"
-import { capitalize, getConversationName } from '../../../utils/chat';
+import { capitalize, getConversationName, getConversationPicture } from '../../../utils/chat';
 
 function ChatHeader({online,callUser}) {
     const {activeConversation}=useSelector((state)=>state.chat);
     const {user}=useSelector((state=>state.user))
     const {name,picture,users}=activeConversation;
-    console.log(activeConversation)
-
     const Displayname=(getConversationName(user,users));
     console.log(Displayname)
   return (
@@ -16,11 +14,11 @@ function ChatHeader({online,callUser}) {
         <div className='w-full flex items-center justify-between'>
         <div className='flex items-center gap-x-4'>
         <button className='btn'>
-        <img src={picture} alt={`${name}'s picture`} className='h-full w-full rounded-full'/>
+        <img src={activeConversation.isGroup?activeConversation.picture:getConversationPicture(user,activeConversation.users)} alt={`${name}'s dp`} className='h-full w-full rounded-full'/>
  
         </button>
         <div className='flex flex-col'>
-            <h1 className='dark:text-white text-md font-bold'>{capitalize(Displayname.split(" ")[0])}</h1>
+            <h1 className='dark:text-white text-md font-bold'>{activeConversation.isGroup?activeConversation.name: capitalize(Displayname.split(" ")[0])}</h1>
             <span className='text-xs dark:text-dark_svg_2'>{online? "online":""}</span>
         </div>
        

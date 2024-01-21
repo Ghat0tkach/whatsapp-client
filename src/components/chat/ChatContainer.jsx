@@ -31,7 +31,7 @@ function ChatContainer({onlineUsers,typing,callUser}) {
     <div className='relative w-full h-[104%] border-l dark:border-l-dark_border_2 select-none overflow-hidden'>
       <div>
         {/* Header */}
-        <ChatHeader callUser={callUser} online={onlineUsers.find((u)=>u.userId===getConversationId(user,activeConversation.users)?true:false)}/>
+        <ChatHeader callUser={callUser} online={activeConversation.isGroup? false: onlineUsers.find((u)=>u.userId===getConversationId(user,activeConversation.users)?true:false)}/>
         {files.length>0 ? <FilePreview/>:
         <>
         <ChatMessages typing={typing}/>

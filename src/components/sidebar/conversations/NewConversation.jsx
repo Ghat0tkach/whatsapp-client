@@ -13,10 +13,12 @@ function NewConversation({convo,socket,online,typing}) {
   const {token}=user;
   const values={
     receiver_id: getConversationId(user,convo.users),
+    isGroup:convo.isGroup ? convo._id : false,
     token,
   }
   const openConversation=async()=>{
         let newConvo= await dispatch(create_open_Conversations(values))
+        console.log(newConvo)
         socket.emit('join conversation',newConvo.payload._id )
          
   }
@@ -27,10 +29,10 @@ function NewConversation({convo,socket,online,typing}) {
     <div className='relative w-full flex items-center justify-between py-[10px]'>
       <div className='flex items-center gap-x-3'>
         <div className={`relative min-w-[50px] max-w-[50px] h-[50px] rounded-full overflow-hidden ${online? "online":""}`}>
-          <img src={getConversationPicture(user,convo.users)} alt='dp' className='w-full h-full object-cover'/>
+          <img src={convo.isGroup? convo.picture: getConversationPicture(user,convo.users)} alt='dp' className='w-full h-full object-cover'/>
         </div>
         <div className='w-full flex flex-col'>
-          <h1 className='font-bold gap-x-2'>{capitalize(getConversationName(user,convo.users))}</h1>
+          <h1 className='font-bold gap-x-2'>{convo.isGroup? convo.name:capitalize(getConversationName(user,convo.users))}</h1>
           <div className='flex items-center gap-x-1 dark:text-dark_text_2'>
           <div className='flex-1 items-center gap-x-2 dark:text-dark_text_2'>
             {
